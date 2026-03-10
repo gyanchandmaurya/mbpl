@@ -1,337 +1,309 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahaberry Link</title>
-    <style>
-        .button {
-            padding: 5px;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 15px;
-            text-decoration: none;
-            width: 100%;
-            text-align: center;
-            display: block;
-            border-top-right-radius: 30px;
-            border-top-left-radius: 30px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mahaberry Dashboard</title>
 
-        .button:hover{
-            background-color:aqua;
-            border: solid;
-            border-color: #720202;
-            font-weight: bold;
-            color: black;
-        }
-        .button::backdrop{
-            background-color:aqua;
-            border: solid;
-            border-color: #720202;
-            font-weight: bold;
-            color: black; 
-        }
+<style>
 
-        .btn-agn-teams {
-            background-color: #0a3363;
-        }
+/* ---------- GENERAL ---------- */
 
-        .btn-tracker {
-            background-color: #0d8789;
-        }
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin:0;
+    background:#f5f6fa;
+}
 
-        .btn-tally {
-            background-color: #2ab611;
-        }
+h1{
+    font-size:20px;
+    text-align:center;
+    color:#720202;
+}
 
-        .btn-new {
-            background-color: #a216c6;
-        }
+/* ---------- LOGO ---------- */
 
-        .btn-old {
-            background-color: #828283;
-        }
+.logo-container{
+    text-align:center;
+    padding:20px;
+}
 
-        .btn-Other {
-            background-color: #4406ff;
-        }
+.logo-container img{
+    max-width:300px;
+    width:100%;
+    height:auto;
+}
 
-        .btn-daily-Report {
-            background-color: #fa0a6e;
-        }
+/* ---------- MARQUEE ---------- */
 
-        .container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-        }
+.marquee{
+    background:red;
+    color:white;
+    font-size:20px;
+    font-weight: 700;
+    padding:3px;
+}
 
-        .column {
-            width: 95%;
-            padding: 3px;
-        }
+/* ---------- NAVBAR ---------- */
 
-        h1 {
-            font-size: 22px;
-            text-align: center;
-            color: #720202;
-        }
+.navbar{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#4100b0;
+    padding:3px;
+    flex-wrap:wrap;
+}
 
-            /* Centering the logo */
-            .logo-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100px; /* Adjust the height if needed */
-        }
-        .border{
-            border: 10px;           
-            border-style:double;
-            border-color: #ce15af;            
-        }
-        #Web{
-            height: 60px;
-            width: 200px;
-            background-image: url("https://framerusercontent.com/images/V3QPaMjobR2IUFzSSVWG8qfCOw.png?scale-down-to=512");
-            background-size: cover;
-            position: fixed;
-            bottom: 20px;
-            left: 20px;        
-        }
+.navbar a{
+    color:white;
+    padding:10px 14px;
+    text-decoration:none;
+    font-weight:bold;
+}
 
-        .bb{
-            border: 10px;           
-            border-style:double;
-            border-color: #ce15af;            
-        }
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100px; /* Adjust the height if needed */
-        }
+.navbar a:hover{
+    background:#fa0a6e;
+}
 
-        .navbar {
-            display: flex;
-            background-color: #4100b0;
-            padding: 15px;
-            margin-top: 10px;
-            align-items: center;
-            justify-content: center;
-            border-style: solid;
-            border-color: #4100b0;
-            border-width: 0PX;
-        }
+/* ---------- HAMBURGER ---------- */
 
-        .navbar a {
-            color: white;
-            background-color: #0a3363;
-            text-decoration: none;
-            padding: 8px 5px;
-            margin-right: 3px;
-            border-style: solid;
-            border-top-right-radius: 0px;
-            border-top-left-radius: 00px;
-            border-width: 3px;
-            border-top-color: #0a3363;
-            border-bottom-color:none;
-            border-right-color: #0a3363;
-            /* border-left-color: #0a3363; */
-        }
+.menu-toggle{
+    display:none;
+    font-size:20px;
+    color:white;
+    cursor:pointer;
+}
 
+/* ---------- DROPDOWN ---------- */
 
-        .navbar a:hover {
-            background-color: rgb(95, 25, 5);
-            font-weight: bold;
-            border: solid;
-            border-color: #fa0a6e;
-        }
+.dropdown{
+    position:relative;
+}
 
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
+.dropdown-content{
+    display:none;
+    position:absolute;
+    background:#1504ff;
+    min-width:200px;
+    z-index:1;
+}
 
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #1504ff;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            min-width: 260px;
-            margin-top: 0.26cm;
-        }
+.dropdown-content a{
+    display:block;
+    padding:10px;
+}
 
-        .dropdown-content a {
-            margin: 0px;
-            color: white;
-            padding: 10px 15px;
-            text-decoration: none;
-            display: block;
-        }
+.dropdown:hover .dropdown-content{
+    display:block;
+}
 
-        .dropdown-content a:hover {
-            background-color: rgb(9, 255, 46);
-            color: black;
-            font-weight: bold;
-            border-color: #fa0aae;
-        }
+/* ---------- DASHBOARD GRID ---------- */
 
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
+.container{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    padding:20px;
+}
 
-        /* ----------Inner Dropdown 2-------------------------- */
-        .dropdown2:hover .dropdown-content2 {
-            display: block;
-        }
+.column{
+    background:white;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
 
-        .dropdown-content2 {
-            display: none;
-            position: absolute;
-            background-color: none;
-            box-shadow: 0px 18px 16px rgba(0, 0, 0, 0.5);
-            z-index: 1;
-            min-height: 5px;
-            min-width: 250px;
-            margin-left: 200px;
-            margin-top: -35px;
-        }
+/* ---------- BUTTON CARDS ---------- */
 
-        .dropdown-content2 a:hover {
-            background-color: rgb(9, 255, 46);
-            color: black;
-            font-weight: bold;
-        }
-        /* ----------Inner Dropdown-------------------------- */
-        
-      #chat{
-      height: 50px;
-      width: 50px;
-      border-radius: 30%;
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      z-index: 1000;
-      background-image: url("https://cdn-icons-png.freepik.com/512/753/753359.png");
-      background-size: cover;
-    }
+.button{
+    display:block;
+    padding:12px;
+    margin-bottom:10px;
+    text-align:center;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:bold;
+    transition:0.3s;
+}
 
-    .a :hover{
-        background-color:#fa0a6e;
-    }
+.button:hover{
+    transform:scale(1.03);
+}
 
-    </style>
+/* Button Colors */
+
+.btn-agn-teams{ background:#0a3363;}
+.btn-tracker{ background:#0d8789;}
+.btn-tally{ background:#2ab611;}
+.btn-new{ background:#a216c6;}
+.btn-old{ background:#828283;}
+.btn-other{ background:#4406ff;}
+.btn-daily{ background:#fa0a6e;}
+
+/* ---------- FLOAT CHAT ---------- */
+
+#chat{
+    height:55px;
+    width:55px;
+    border-radius:50%;
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background-image:url("https://cdn-icons-png.freepik.com/512/753/753359.png");
+    background-size:cover;
+}
+
+/* ---------- TABLET ---------- */
+
+@media(max-width:900px){
+
+.container{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:600px){
+
+.menu-toggle{
+display:block;
+}
+
+.navbar{
+flex-direction:column;
+align-items:flex-start;
+display:none;
+}
+
+.navbar.active{
+display:flex;
+}
+
+.container{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+<script>
+
+function toggleMenu(){
+document.getElementById("navbar").classList.toggle("active");
+}
+
+</script>
+
 </head>
+
 <body>
-    <br>
-    <!-- Centering the logo -->
-    <div class="logo-container">
-        <img src="https://framerusercontent.com/images/V3QPaMjobR2IUFzSSVWG8qfCOw.png?scale-down-to=512" alt="Mahaberry Logo" height="180">
-    </div>
-    <br><br>
-    <marquee bgcolor=red  direction=left style="color: rgb(255, 255, 255); font-size: 25px; ">MAHABERRY PRIVATE LIMITED </marquee>
-    <br>
 
+<!-- LOGO -->
 
-<!-------------Start of Nav Bar------------------------>
-    <div class="navbar">
-        <h4 style="margin: 0; text-align: left; color: white; font-weight: 900; font-size: larger; margin-right: 10px;"></h4>
-        <div class="dropdown">
-            <a>MAHABERRY</a>
-            <div class="dropdown-content">
-                <div class="dropdown2">
-                    <a>OFFICE</a>
-                    <div class="dropdown-content2">
-                        <a href="#" target="_self">Blank</a>
-                        <a href="#" target="_self">Blank</a>
-                    </div>
-                </div>
-                <a href="#" target="_self">Blank</a>
-                <a href="#" target="_self">Blank</a>
-                <div class="dropdown2">
-                    <a href="#" target="_self">Blank</a>
-                    <div class="dropdown-content2">
-                        <a href="#" target="_self">Blank</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="dropdown">
-            <a>EIGHT BERRIES</a>
-            <div class="dropdown-content">
-                <div class="dropdown2">
-                    <a href="#" target="_self">8B</a>
-                    <div class="dropdown-content2">
-                        <a href="" target="_self">.</a>
-                    </div>
-                </div>
-                <div class="dropdown2">    
-                    <div class="dropdown-content2">
-                    </div>
-                </div>
-                <a href="#" target="_self">Blank</a>
-                <a href="#" target="_self">Blank</a>
-            </div>
-        </div>
-    </div>
-<br>
-
-<!------------------------End of Nav Bar---------------->
-<div class="border">
-    <div class="container">
-        <div class="column">
-            <h1><u>Daily Entry</u></h1>
-            <a href="https://811argo-my.sharepoint.com/:x:/g/personal/backoffice_811agro_com/IQBpm9l2pcNeQY6s8-C6KxThAeXgcRbODDTlOD_RGml07YU?e=2alWPR" target="_self" class="button btn-agn-teams">
-                Punnet Daily Entry</a><br>
-            <a href="https://811argo-my.sharepoint.com/:x:/g/personal/backoffice_811agro_com/IQBlJJC1oFEpQYrQ1LWcfHPaAdHOQjb_Ai9rSD9tpc_YgeM?e=RaUCcE" target="_self" class="button btn-agn-teams">
-                Dispatch Entry - Bhilar Daily</a><br>
-            <a href="#" target="_self" class="button btn-agn-teams">
-                Display</a><br>
-
-            <!-- Front Office - Shared file -->
-            <h1><u>Shared file</u></h1>
-            <a href="#" target="_self" class="button btn-new">
-                Display</a><br>
-        </div>
-
-        <!-- Column 2 - ---------------- -->
-        <div class="column">
-            <!-- <h1><u>Cloud Tally Antra Web</u></h1>
-            <a href="#" target="_self" class="button btn-tally">
-                <h2>Cloud Tally Antra Web</h2></a> -->
-
-            <h1><u>Report Files</u></h1>
-
-            <h1><u>Viveros Berry Science Pvt Ltd</u></h1>
-            <a href="https://mahaberry-my.sharepoint.com/:f:/g/personal/accounts_mahaberry_co_in/IgC6ME_OvSaZTrN6N8tTPYCQAZtn9Y1C_hapT4BsqLGKv0Y?e=wuH08T" target="_self" class="button btn-agn-teams">
-                VBS EXpenses Details</a><br>
-
-        </div>
-
-        <!-- Column 3 - Other Files -->
-
-            <div class="column">
-                <!-- <h1><u>Pay_Tracker 2025</u></h1>     
-                <a href="#" target="_self" class="button btn-tracker">
-                    Display</a> <br> -->
-
-                <!----------------------------->
-                <h1><u>Teams Folder</u></h1>
-                <a href="#" target="_self" class="button btn-agn-teams">
-                    Display</a><br>
-               
-                <!----------------------------->
-                <br>
-                <h1><u>Previous Year Files</u></h1>
-                <a href="#" target="_self" class="button btn-old">
-                    Display</a><br>
-                
-            </div>
-    </div>
+<div class="logo-container">
+<img src="https://framerusercontent.com/images/V3QPaMjobR2IUFzSSVWG8qfCOw.png?scale-down-to=512">
 </div>
-<a href="#logo-container" target="_blank"><div id="chat"></div> </a>
+
+<div class="marquee">
+<marquee>811 GROUP - Mahaberry Pvt. Ltd. Eight Berries Farm & Nursery Pvt. Ltd</marquee>
+</div>
+
+<!-- MOBILE MENU -->
+
+<div style="background:#4100b0;padding:10px;">
+<span class="menu-toggle" onclick="toggleMenu()">☰ Menu</span>
+</div>
+
+<!-- NAVBAR -->
+
+<div class="navbar" id="navbar">
+
+<div class="dropdown">
+<!-- <a href="#">MAHABERRY</a> -->
+<a href="#" onclick="toggleDropdown(event,'drop1')">MAHABERRY ▼</a>
+
+<div class="dropdown-content">
+<a href="#">Office</a>
+<a href="#">Blank</a>
+<a href="#">Blank</a>
+</div>
+</div>
+
+<div class="dropdown">
+<!-- <a href="#">EIGHT BERRIES</a> -->
+ <a href="#" onclick="toggleDropdown(event,'drop2')">EIGHT BERRIES ▼</a>
+
+<div class="dropdown-content">
+<a href="#">8B</a>
+<a href="#">Blank</a>
+</div>
+
+</div>
+
+</div>
+
+<!-- DASHBOARD -->
+
+<div class="container">
+
+<!-- COLUMN 1 -->
+
+<div class="column">
+
+<h1>Daily Entry</h1>
+
+<a href="https://811argo-my.sharepoint.com/:x:/g/personal/backoffice_811agro_com/IQBpm9l2pcNeQY6s8-C6KxThAeXgcRbODDTlOD_RGml07YU?e=2alWPR"
+class="button btn-agn-teams">Punnet Daily Entry</a>
+
+<a href="https://811argo-my.sharepoint.com/:x:/g/personal/backoffice_811agro_com/IQBlJJC1oFEpQYrQ1LWcfHPaAdHOQjb_Ai9rSD9tpc_YgeM?e=RaUCcE"
+class="button btn-agn-teams">Dispatch Entry - Bhilar Daily</a>
+
+<a href="#" class="button btn-agn-teams">Display</a>
+
+<h1>Shared File</h1>
+
+<a href="#" class="button btn-new">Display</a>
+
+</div>
+
+<!-- COLUMN 2 -->
+
+<div class="column">
+
+<h1>Report Files</h1>
+
+<a href="/Dispatch_Report_Bhilar.html"
+class="button btn-agn-teams">Daily Dispatch Report</a>
+
+</div>
+
+<!-- COLUMN 3 -->
+
+<div class="column">
+
+<h1>Viveros Berry Science Pvt Ltd</h1>
+
+<a href="https://mahaberry-my.sharepoint.com/:f:/g/personal/accounts_mahaberry_co_in/IgC6ME_OvSaZTrN6N8tTPYCQAZtn9Y1C_hapT4BsqLGKv0Y?e=wuH08T"
+class="button btn-agn-teams">VBS Expenses Details</a>
+
+<h1>Teams Folder</h1>
+
+<a href="#" class="button btn-agn-teams">Display</a>
+
+<h1>Previous Year Files</h1>
+
+<a href="#" class="button btn-old">Display</a>
+
+</div>
+
+</div>
+
+<a href="#"><div id="chat"></div></a>
+
 </body>
 </html>
