@@ -3,201 +3,201 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="https://framerusercontent.com/images/V3QPaMjobR2IUFzSSVWG8qfCOw.png" type="images/x-icon">
 <title>Mahaberry Dashboard</title>
 
-<style>
+    <style>
+        /* ---------- GENERAL ---------- */
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            margin:0;
+            background:#f5f6fa;
+        }
 
-/* ---------- GENERAL ---------- */
+        h1{
+            font-size:20px;
+            text-align:center;
+            color:#720202;
+        }
 
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    margin:0;
-    background:#f5f6fa;
-}
+        /* ---------- LOGO ---------- */
 
-h1{
-    font-size:20px;
-    text-align:center;
-    color:#720202;
-}
+        .logo-container{
+            text-align:center;
+            padding:5px;
+        }
 
-/* ---------- LOGO ---------- */
+        .logo-container img{
+            max-width:150px;
+            width:100%;
+            height:auto;
+        }
 
-.logo-container{
-    text-align:center;
-    padding:5px;
-}
+        /* ---------- MARQUEE ---------- */
 
-.logo-container img{
-    max-width:150px;
-    width:100%;
-    height:auto;
-}
+        .marquee{
+            background:red;
+            color:white;
+            font-size:20px;
+            font-weight: 700;
+            padding:3px;
+        }
 
-/* ---------- MARQUEE ---------- */
+        /* ---------- NAVBAR ---------- */
 
-.marquee{
-    background:red;
-    color:white;
-    font-size:20px;
-    font-weight: 700;
-    padding:3px;
-}
+        .navbar{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:#4100b0;
+            padding:3px;
+            flex-wrap:wrap;
+        }
 
-/* ---------- NAVBAR ---------- */
+        .navbar a{
+            color:white;
+            padding:10px 14px;
+            text-decoration:none;
+            font-weight:bold;
+        }
 
-.navbar{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:#4100b0;
-    padding:3px;
-    flex-wrap:wrap;
-}
+        .navbar a:hover{
+            background:#fa0a6e;
+        }
 
-.navbar a{
-    color:white;
-    padding:10px 14px;
-    text-decoration:none;
-    font-weight:bold;
-}
+        /* ---------- HAMBURGER ---------- */
 
-.navbar a:hover{
-    background:#fa0a6e;
-}
+        .menu-toggle{
+            display:none;
+            font-size:20px;
+            color:white;
+            cursor:pointer;
+        }
 
-/* ---------- HAMBURGER ---------- */
+        /* ---------- DROPDOWN ---------- */
 
-.menu-toggle{
-    display:none;
-    font-size:20px;
-    color:white;
-    cursor:pointer;
-}
+        .dropdown{
+            position:relative;
+        }
 
-/* ---------- DROPDOWN ---------- */
+        .dropdown-content{
+            display:none;
+            position:absolute;
+            background:#1504ff;
+            min-width:200px;
+            z-index:1;
+        }
 
-.dropdown{
-    position:relative;
-}
+        .dropdown-content a{
+            display:block;
+            padding:10px;
+            border-style:outset;
+        }
 
-.dropdown-content{
-    display:none;
-    position:absolute;
-    background:#1504ff;
-    min-width:200px;
-    z-index:1;
-}
+        .dropdown:hover .dropdown-content{
+            display:block;
+        }
 
-.dropdown-content a{
-    display:block;
-    padding:10px;
-}
+        /* ---------- DASHBOARD GRID ---------- */
 
-.dropdown:hover .dropdown-content{
-    display:block;
-}
+        .container{
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:20px;
+            padding:20px;
+        }
 
-/* ---------- DASHBOARD GRID ---------- */
+        .column{
+            background:white;
+            padding:15px;
+            border-radius:10px;
+            box-shadow:0 2px 6px rgba(0,0,0,0.1);
+        }
 
-.container{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-    padding:20px;
-}
+        /* ---------- BUTTON CARDS ---------- */
 
-.column{
-    background:white;
-    padding:15px;
-    border-radius:10px;
-    box-shadow:0 2px 6px rgba(0,0,0,0.1);
-}
+        .button{
+            display:block;
+            padding:12px;
+            margin-bottom:10px;
+            text-align:center;
+            color:white;
+            text-decoration:none;
+            border-radius:10px;
+            font-weight:bold;
+            transition:0.3s;
+        }
 
-/* ---------- BUTTON CARDS ---------- */
+        .button:hover{
+            transform:scale(1.03);
+        }
 
-.button{
-    display:block;
-    padding:12px;
-    margin-bottom:10px;
-    text-align:center;
-    color:white;
-    text-decoration:none;
-    border-radius:10px;
-    font-weight:bold;
-    transition:0.3s;
-}
+        /* Button Colors */
 
-.button:hover{
-    transform:scale(1.03);
-}
+        .btn-agn-teams{ background:#0a3363;}
+        .btn-tracker{ background:#0d8789;}
+        .btn-tally{ background:#2ab611;}
+        .btn-new{ background:#a216c6;}
+        .btn-old{ background:#828283;}
+        .btn-other{ background:#4406ff;}
+        .btn-daily{ background:#fa0a6e;}
 
-/* Button Colors */
+        /* ---------- FLOAT CHAT ---------- */
 
-.btn-agn-teams{ background:#0a3363;}
-.btn-tracker{ background:#0d8789;}
-.btn-tally{ background:#2ab611;}
-.btn-new{ background:#a216c6;}
-.btn-old{ background:#828283;}
-.btn-other{ background:#4406ff;}
-.btn-daily{ background:#fa0a6e;}
+        #chat{
+            height:55px;
+            width:55px;
+            border-radius:50%;
+            position:fixed;
+            bottom:20px;
+            right:20px;
+            background-image:url("https://cdn-icons-png.freepik.com/512/753/753359.png");
+            background-size:cover;
+        }
 
-/* ---------- FLOAT CHAT ---------- */
+        /* ---------- TABLET ---------- */
 
-#chat{
-    height:55px;
-    width:55px;
-    border-radius:50%;
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background-image:url("https://cdn-icons-png.freepik.com/512/753/753359.png");
-    background-size:cover;
-}
+        @media(max-width:900px){
 
-/* ---------- TABLET ---------- */
+        .container{
+        grid-template-columns:repeat(2,1fr);
+        }
 
-@media(max-width:900px){
+        }
 
-.container{
-grid-template-columns:repeat(2,1fr);
-}
+        /* ---------- MOBILE ---------- */
 
-}
+        @media(max-width:600px){
 
-/* ---------- MOBILE ---------- */
+        .menu-toggle{
+        display:block;
+        }
 
-@media(max-width:600px){
+        .navbar{
+        flex-direction:column;
+        align-items:flex-start;
+        display:none;
+        }
 
-.menu-toggle{
-display:block;
-}
+        .navbar.active{
+        display:flex;
+        }
 
-.navbar{
-flex-direction:column;
-align-items:flex-start;
-display:none;
-}
+        .container{
+        grid-template-columns:1fr;
+        }
 
-.navbar.active{
-display:flex;
-}
+        }
 
-.container{
-grid-template-columns:1fr;
-}
+        </style>
 
-}
+        <script>
 
-</style>
+        function toggleMenu(){
+        document.getElementById("navbar").classList.toggle("active");
+        }
 
-<script>
-
-function toggleMenu(){
-document.getElementById("navbar").classList.toggle("active");
-}
-
-</script>
+    </script>
 
 </head>
 
@@ -246,6 +246,8 @@ document.getElementById("navbar").classList.toggle("active");
 <a href="#" onclick="toggleDropdown(event,'drop2')"> OTHER LINK ▼</a>
     <div class="dropdown-content">
         <a href="https://ideal.dbs.bank.in/loginSubscriberv2/login/pin?pk_vid=d267899e694824561773474104bf20f3">DBS Ideal Login</a>
+        <a href="https://pqms.cgg.gov.in/pqms-angular/home">PQMS - Plant Quarantine Management System</a>
+        <a href="https://support.hp.com/in-en/drivers/hp-laserjet-tank-mfp-1005-printer-series/model/2100846456?sku=381U4A&serialnumber=381U4A">HP Printer Driver (MFP 1005w)</a>
         <a href="https://cloud.cdata.com/data-explorer/">CData Connect</a>
     </div>
 </div>
@@ -280,7 +282,7 @@ class="button btn-agn-teams">DBS Bank Reconciliation</a>
 
 <div class="column">
 
-<h1>Cloud Folder</h1>
+<h1>OneDrive Folder</h1>
 <a href="https://811argo-my.sharepoint.com/:f:/g/personal/backoffice_811agro_com/IgCfj8y1UTgUTLkOAR_BrjWuAaFQTpv9A9yscd49SJcDWBU?e=yI9B5W" class="button btn-new">PEQ Documents 2026-27</a>
 <a href="/Dispatch_Report_Bhilar.html" class="button btn-daily">Bank Statement 2026-27</a>
 
